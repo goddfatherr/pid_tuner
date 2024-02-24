@@ -3,7 +3,7 @@
 PID controllers are widely used in robotics and process automation. Often designers recompile the executable many times when tuning the controller. This component provides a window into the controller to tune it in real time, avoiding hardcoding the gain values and therefore multiple recompilations of the source files. 
 
 # Target Framework and Device
-ESP-IDF and ESP32 family of microcontrollers (written entirely in C and  easily adaptable to work on other platforms)
+ESP-IDF and ESP32 family of microchips (written entirely in C and  easily adaptable to work on other platforms)
 
 # Tuning Strategies Supported
 ## Local Tuning
