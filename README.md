@@ -71,3 +71,33 @@ ws = new WebSocket("ws://172.22.202.69:80/ws");
 # Notes
 - The two tuning methods can be used independently or at the same time without conflicts.
 - The ADC attenuation is set to ADC_ATTEN_DB_12 limiting the measurable input range to 150 mV ~ 2450 mV. Plan accordingly when setting up the POTs.
+
+# Sample Serial Monitor Output
+```
+I (813) example_connect: Connecting to GITAM...
+I (813) example_connect: Waiting for IP(s)
+I (3223) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (5603) esp_netif_handlers: example_netif_sta ip: 172.22.202.69, mask: 255.255.240.0, gw: 172.22.192.1
+I (5603) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.22.202.69
+I (5613) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:b2b2:1cff:fea7:4080, type: ESP_IP6_ADDR_IS_LINK_LOCAL
+I (5623) example_common: Connected to example_netif_sta
+I (5633) example_common: - IPv4 address: 172.22.202.69,
+I (5633) example_common: - IPv6 address: fe80:0000:0000:0000:b2b2:1cff:fea7:4080, type: ESP_IP6_ADDR_IS_LINK_LOCAL
+I (5643) ws_server: Starting server on port: '80'
+I (5653) ws_server: Registering URI handlers
+I (5653) main_task: Returned from app_main()
+
+I (42473) ws_server: Handshake done, the new connection was opened
+W (42493) wifi:[ADDBA]rx delba, code:37, delete tid:0
+I (46783) ws_server: frame len is 8
+I (46783) ws_server: Got packet with message: 65 36 50
+I (46783) ws_server: Packet type: 1
+I (46783) ws_server: P, I, D was set Remotely.
+I (46803) helper: PID saved to NVS: P = 65, I = 36, D = 50
+
+I (6366) pid_tuner_local: P = 951, I = 0, D = 0
+I (6376) helper: PID saved to NVS: P = 951, I = 0, D = 0
+I (14446) pid_tuner_local: P = 952, I = 532, D = 0
+I (14456) helper: PID saved to NVS: P = 952, I = 532, D = 0
+```
