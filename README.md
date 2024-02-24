@@ -38,7 +38,9 @@ The following boilerplate must be present in your application code to configure 
 
 ## If using Network Tuning
 - In your application code, call, 
+```
     start_socket_pid_tuner();
+```
 - Enable WebSocket over HTTP in menuconfig, 
 ```
 menuconfig -> Component Config -> HTTP Server -> Websocket Server Support
@@ -50,9 +52,17 @@ menuconfig -> Component Config -> HTTP Server -> Websocket Server Support
 menuconfig -> Example Configuration
 ```
 ![alt text](image-1.png)
-
-Notes: The two tuning methods can be used independently or at the same time without conflicts. 
+ 
 
 # Running
 
-- If using network tuning, when the application starts up, the IP of the server is printed on the serial console. Feed this to your frontend application and send the appropirate string format ("P_value I_value D_value)
+- If using network tuning, when the application starts up, the IP of the server is printed on the serial console. Feed this to your frontend application and send the appropirate string format ("P_value I_value D_value")
+
+- If using the provided basic webapp, set the following line accordingly in `script.js` :
+```
+ws = new WebSocket("ws://172.22.202.69:80/ws");
+``` 
+
+# Notes
+- The two tuning methods can be used independently or at the same time without conflicts.
+- The ADC attenuation is set to ADC_ATTEN_DB_12 limiting the measurable input range to 150 mV ~ 2450 mV. Plan accordingly when setting up the POTs.
