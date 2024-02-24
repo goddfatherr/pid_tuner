@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PID Value Sliders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="status"></div>
+  <div id="slider-container">
+    <div class="slider-container">
+      <label for="kp">KP:</label>
+      <input type="range" min="0" max="100" value="50" class="slider" id="kp">
+      <span id="kp-value">50</span>
+    </div>
+    <div class="slider-container">
+      <label for="ki">KI:</label>
+      <input type="range" min="0" max="100" value="50" class="slider" id="ki">
+      <span id="ki-value">50</span>
+    </div>
+    <div class="slider-container">
+      <label for="kd">KD:</label>
+      <input type="range" min="0" max="100" value="50" class="slider" id="kd">
+      <span id="kd-value">50</span>
+    </div>
+  </div>
+  <button id="send-button">Send</button>
+  <script src="script.js"></script>
+</body>
+</html>
