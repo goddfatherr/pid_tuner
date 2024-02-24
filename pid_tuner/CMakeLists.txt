@@ -1,0 +1,19 @@
+idf_component_register(
+    SRCS "helper.c"
+        "pid_tuner_local.c"
+        "pid_tuner_socket.c"
+        "ws_server.c"
+    INCLUDE_DIRS 
+        "inc"
+    REQUIRES 
+        "nvs_flash"
+        "esp_adc"
+        "driver" 
+        "protocol_examples_common" 
+        "esp_event" 
+        "esp_system" 
+        "esp_netif" 
+        "esp_wifi" 
+        "esp_eth" 
+        "esp_http_server"
+)
