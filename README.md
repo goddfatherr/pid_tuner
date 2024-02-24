@@ -1,14 +1,19 @@
 # Introduction
 
-PID controllers are widely used in robotics and process automation. Often designers recompile the executable many times when tuning the controller. This component provides a window into the controller to tune it in real time, avoiding hardcoding the values and therefore multiple recompilations of the source files. 
+PID controllers are widely used in robotics and process automation. Often designers recompile the executable many times when tuning the controller. This component provides a window into the controller to tune it in real time, avoiding hardcoding the gain values and therefore multiple recompilations of the source files. 
 
 # Target Framework and Device
 ESP-IDF and ESP32 family of microcontrollers (written entirely in C and  easily adaptable to work on other platforms)
 
 # Tuning Strategies Supported
 ## Local Tuning
-- You need to build a simple circuit as shown in the diagram below.
-
+- You need to build a simple circuit as described below (default pins).
+```
+    a. POT1    -> ADC1_CHAN0
+    b. POT1    -> ADC1_CHAN3
+    c. POT1    -> ADC1_CHAN6
+    d. tactile -> GPIO13
+```
 - You may set the pins as you wish in the Kconfig file at the root of the component. 
 
 - When the tactile is pressed, an interrupt fires and the ISR samples the ADCs which the POTs are connected to. These values are assigned to P, I, D global variables and written to NVS to persist between power cycles. 
